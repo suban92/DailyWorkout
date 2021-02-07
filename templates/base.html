@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Suban</title>
+</head>
+<body>
+
+    <h1>Daily Workout</h1>
+
+    <form action="/add" method="post">
+        <div>
+            <label for="title">Exercise</label>
+            <input type="text" name="title" placeholder="Enter Exercise..">
+            <br>
+            <button type="submit">Add</button>
+        </div>
+    </form>
+
+    {% for DailyWorkout in DailyWorkout_list %}
+
+        <p> {{ DailyWorkout.id }} | {{DailyWorkout.title}} </p>
+
+        {% if DailyWorkout.complete == False %}
+             <span>Finish Exercise</span>
+        {% else %}
+            <span>Exercise Finished</span>
+        {% endif %}
+            <a href="/Done/{{ DailyWorkout.id }}">Done</a>
+            <a href="/delete/{{ DailyWorkout.id }}">Delete</a>
+
+    {% endfor %}
+
+</body>
+</html>
