@@ -37,9 +37,4 @@ class Testpages(TestBase):
         response = self.client.post("done/1")
         self.assertIn(b"1", response.data)
 
-#    def testdelete2(self):
- #       response = self.client.post("delete/1")
-  #      data = daily_workout(id=1)
-   #     follow_redirects=True
-    #    self.assertEqual(response.status_code, 200)
         
